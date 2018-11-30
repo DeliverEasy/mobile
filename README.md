@@ -26,8 +26,8 @@ git clone https://github.com/DeliverEasy/mobile.git
 ```
 ## Testeo
 
-*Para testear el funcionamiento de la aplicacion, se necesitara instalar la aplicación de expo en el celular`
-*Escanear el codigo de nuestro proyecto para poder visualizarlo y listo
+Para testear el funcionamiento de la aplicacion, se necesitara instalar la aplicación de expo en el celular
+Escanear el codigo de nuestro proyecto para poder visualizarlo y listo
 
 ## Built With
 
