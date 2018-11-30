@@ -24,66 +24,58 @@ export default class LogInScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
 
-            <View style={{ flex: 1 }}>
-                <View style={{ backgroundColor: 'orange', flex: 1 }} />
-                    <LinearGradient
-                    colors={[ '#C337C4', '#1D2671']}
-                    style={{
-                    position: 'absolute',
-                    left: 0,
-                    right: 0,
-                    top: -50,
-                    height: 800,
-                    }}
-                    />
-                </View>
+            <LinearGradient
+            colors={[ '#C337C4', '#1D2671']}
+            style={{
+            position: 'absolute',
+            left: 0,
+            right: 0,
+            top: -50,
+            height: 800,
+            }}/>
 
             <View style={styles.getStartedContainer}>
 
                 <Text style={styles.getStartedText}>LOG IN</Text>
 
-                <Text style={styles.getStartedText}>Version: Alpha 0.0.1</Text>
+                <Text style={styles.getStartedText}>Version: Alpha 0.0.3</Text>
             </View>
 
-            <View style={styles.getStartedContainer}>
+            <View style={styles.getStartedContainer2}>
 
-                <Text style={styles.getStartedText}>USER </Text>
+                <View style={styles.getStartedContainer}>
 
-                <TextInput style={styles.input}></TextInput>
+                    <Text style={styles.getStartedText}>USER </Text>
+
+                    <TextInput style={styles.input}></TextInput>
+
+                </View>
+
+                <View style={styles.getStartedContainer}>
+
+                    <Text style={styles.getStartedText}>PASSWORD</Text>
+
+                    <TextInput style={styles.input}></TextInput>
+
+                </View>
+
+                <View style={styles.container,{backgroundColor:'transparent'}}>
+
+                    <Button onPress={this._SingInAsync} title="Log In" color="#6A04FA"/>
+
+                    <Button onPress={this._fetchAsync} title="Try Database" color="#000000"/>
+
+                </View>
 
             </View>
 
-            <View style={styles.getStartedContainer}>
-
-                <Text style={styles.getStartedText}>PASSWORD</Text>
-
-                <TextInput style={styles.input}></TextInput>
-
-            </View>
-
-            <View style={styles.container,{backgroundColor:'transparent'}}>
-
-                <Button onPress={this._SingInAsync} title="Log In" color="#FFFFFF"/>
-
-                <Button onPress={this._fetchAsync} title="Log In" color="#000000"/>
-
+            <View style={styles.getStartedContainer3}>
             </View>
 
         </ScrollView>
-
-        <View style={styles.tabBarInfoContainer}>
-
-          <Text style={styles.tabBarInfoText}>TAB BAR</Text>
-
-          <View style={[styles.codeHighlightContainer, styles.navigationFilename]}>
-
-            <MonoText style={styles.codeHighlightText}>navigation/MainTabNavigator.js</MonoText>
-
-          </View>
-
-        </View>
 
       </View>
     );
@@ -182,7 +174,7 @@ const styles = StyleSheet.create({
   },
   getStartedText: {
     fontSize: 17,
-    color: '#FFFFFF',
+    color: '#000000',
     lineHeight: 24,
     textAlign: 'center',
   },
@@ -229,12 +221,26 @@ const styles = StyleSheet.create({
       margin: 20,
       marginBottom: 0,
       height: 34,
-      width: 275,
+      width: 175,
       paddingHorizontal: 10,
       borderRadius: 4,
-      borderColor: '#FFFFFF',
+      borderColor: 'black',
       borderWidth: 1,
       fontSize: 16,
-      color:"#FFFFFF"
+      color:"#000000"
     },
+    getStartedContainer2: {
+        alignItems: 'center',
+        marginHorizontal: 50,
+        backgroundColor:'white',
+        borderRadius:10,
+        paddingTop:10,
+        paddingBottom:15,
+        marginTop:35,
+        width: 275,
+    },
+    getStartedContainer3: {
+        height:800,
+        backgroundColor:"transparent",
+        },
 });
