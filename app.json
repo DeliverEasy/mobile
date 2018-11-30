@@ -3,6 +3,7 @@
     "name": "Deliver Easy",
     "description": "ITS VILLADA Students project for programming III.",
     "slug": "DeliverEasy",
+    "slug": "deliver-easy",
     "privacy": "public",
     "sdkVersion": "30.0.0",
     "platforms": ["ios", "android"],

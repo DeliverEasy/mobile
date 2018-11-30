@@ -9,6 +9,7 @@ import {
   View,
   Button,
   AsyncStorage,
+  TextInput,
 } from 'react-native';
 import { WebBrowser, LinearGradient } from 'expo';
 
@@ -22,46 +23,56 @@ export default class HomeScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
 
-        <View style={{ flex: 1 }}>
-                        <View style={{ backgroundColor: 'orange', flex: 1 }} />
-                        <LinearGradient
-                          colors={[ '#C337C4', '#1D2671']}
-                          style={{
-                            position: 'absolute',
-                            left: 0,
-                            right: 0,
-                            top: -50,
-                            height: 800,
-                          }}
-                        />
-                      </View>
+            <View style={{ flex: 1 }}>
 
-        <View style={styles.getStartedContainer}>
+                <View style={{ backgroundColor: 'orange', flex: 1 }} />
+                <LinearGradient
+                colors={[ '#C337C4', '#1D2671']}
+                style={{
+                position: 'absolute',
+                left: 0,
+                right: 0,
+                top: -50,
+                height: 800,
+                }}
+                />
 
-            <Text style={styles.getStartedText}>Deliver Easy [Name in progress]</Text>
-
-            <Text style={styles.getStartedText}>Version: Alpha 0.0.1</Text>
-
-            <View style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
-                <MonoText style={styles.codeHighlightText}>This is the mobile app of our project. Here will appear all the information from the django backend.</MonoText>
             </View>
 
-        </View>
-        <View style={styles.container}>
-            <Button onPress={this._SingOutAsync} title="Log Out" color="#FFFFFF"/>
-        </View>
+            <View style={styles.getStartedContainer}>
+
+                <Text style={styles.getStartedText}>Deliver Easy [Name in progress]</Text>
+
+                <Text style={styles.getStartedText}>Version: Alpha 0.0.1</Text>
+
+            </View>
+
+            <View style={[styles.getStartedContainer, styles.homeScreenFilename]}>
+
+                <TextInput style={styles.input}></TextInput>
+
+            </View>
+
+            <View style={styles.container}>
+
+                <Button onPress={this._SingOutAsync} title="Log Out" color="#FFFFFF"/>
+
+            </View>
+
         </ScrollView>
 
       </View>
+
     );
+
   }
 
   _SingOutAsync = async () => {
       await AsyncStorage.clear();
       this.props.navigation.navigate('SignIn');
-      console.log("sape");
   }
 
   _maybeRenderDevelopmentModeWarning() {
@@ -188,4 +199,16 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#2e78b7',
   },
+    input: {
+        margin: 10,
+        marginBottom: 0,
+        height: 34,
+        width: 275,
+        paddingHorizontal: 10,
+        borderRadius: 4,
+        borderColor: '#FFFFFF',
+        borderWidth: 1,
+        fontSize: 16,
+        color:"#FFFFFF"
+      },
 });
