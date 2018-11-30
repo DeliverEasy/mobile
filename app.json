@@ -2,13 +2,13 @@
   "expo": {
     "name": "Deliver Easy",
     "description": "ITS VILLADA Students project for programming III.",
-    "slug": "Deliver Easy",
+    "slug": "deliver-easy",
     "privacy": "public",
     "sdkVersion": "30.0.0",
     "platforms": ["ios", "android"],
     "version": "Pre alpha 0.0.1",
     "orientation": "portrait",
-    "icon": "./assets/images/sape.jpg",
+    "icon": "./assets/images/icon.png",
     "splash": {
       "image": "./assets/images/splash.png",
       "resizeMode": "contain",

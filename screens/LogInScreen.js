@@ -26,60 +26,74 @@ export default class LogInScreen extends React.Component {
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
 
-        <View style={{ flex: 1 }}>
-                                        <View style={{ backgroundColor: 'orange', flex: 1 }} />
-                                        <LinearGradient
-                                          colors={[ '#C337C4', '#1D2671']}
-                                          style={{
-                                            position: 'absolute',
-                                            left: 0,
-                                            right: 0,
-                                            top: -50,
-                                            height: 800,
-                                          }}
-                                        />
-                                      </View>
+            <View style={{ flex: 1 }}>
+                <View style={{ backgroundColor: 'orange', flex: 1 }} />
+                    <LinearGradient
+                    colors={[ '#C337C4', '#1D2671']}
+                    style={{
+                    position: 'absolute',
+                    left: 0,
+                    right: 0,
+                    top: -50,
+                    height: 800,
+                    }}
+                    />
+                </View>
 
-        <View style={styles.getStartedContainer}>
+            <View style={styles.getStartedContainer}>
 
-            <Text style={styles.getStartedText}>LOG IN</Text>
+                <Text style={styles.getStartedText}>LOG IN</Text>
 
-            <Text style={styles.getStartedText}>Version: Alpha 0.0.1</Text>
+                <Text style={styles.getStartedText}>Version: Alpha 0.0.1</Text>
+            </View>
 
-            <Text style={styles.getStartedText}>USER </Text>
+            <View style={styles.getStartedContainer}>
 
-            <TextInput style={styles.input}></TextInput>
+                <Text style={styles.getStartedText}>USER </Text>
 
-            <Text style={styles.getStartedText}>PASSWORD</Text>
+                <TextInput style={styles.input}></TextInput>
 
-            <TextInput style={styles.input}></TextInput>
+            </View>
 
+            <View style={styles.getStartedContainer}>
 
+                <Text style={styles.getStartedText}>PASSWORD</Text>
 
-        </View>
+                <TextInput style={styles.input}></TextInput>
+
+            </View>
+
+            <View style={styles.container,{backgroundColor:'transparent'}}>
+
+                <Button onPress={this._SingInAsync} title="Log In" color="#FFFFFF"/>
+
+                <Button onPress={this._fetchAsync} title="Log In" color="#000000"/>
+
+            </View>
 
         </ScrollView>
 
         <View style={styles.tabBarInfoContainer}>
 
-          <View style={styles.container,{backgroundColor:'black'}}>
-          <Button
-          onPress={this._SingInAsync}
-          title="Log In"
-          color="#FFFFFF"
-          />
-          </View>
-
           <Text style={styles.tabBarInfoText}>TAB BAR</Text>
 
           <View style={[styles.codeHighlightContainer, styles.navigationFilename]}>
+
             <MonoText style={styles.codeHighlightText}>navigation/MainTabNavigator.js</MonoText>
+
           </View>
 
         </View>
+
       </View>
     );
   }
+
+  _fetchAsync = async () => {
+  let data = await (await fetch('http://http://192.168.60.127:8000/users/current_user/')).json();
+  console.log(data)
+  return data;
+  };
 
   _SingInAsync = async () => {
     await AsyncStorage.setItem('userToken', 'abc');
