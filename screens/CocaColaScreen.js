@@ -16,62 +16,22 @@ import { WebBrowser, LinearGradient } from 'expo';
 
 import { MonoText } from '../components/StyledText';
 
-export default class LogInScreen extends React.Component {
+export default class CocaColaScreen extends React.Component {
   static navigationOptions = {
-    header: null,
+    title: 'The CocaCola Company',
   };
 
   render() {
     return (
       <View style={styles.container}>
 
-        <LinearGradient colors={[ '#C337C4', '#1D2671']}
-        style={{position: 'absolute', left: 0, right: 0, top: -50, height: 718,}}/>
-
         <ScrollView style={styles.container, {backgroundColor:'transparent'}} contentContainerStyle={styles.contentContainer}>
-
-
-
-            <View style={styles.getStartedContainer}>
-
-                <Text style={styles.getStartedText}>LOG IN</Text>
-
-                <Text style={styles.getStartedText}>Version: Alpha 0.0.6</Text>
-            </View>
 
             <View style={styles.getStartedContainer2}>
 
-                <View style={styles.getStartedContainer}>
-
-                    <Text style={{color:'black', fontSize:17}}>USER </Text>
-
-                    <TextInput style={styles.input}></TextInput>
-
-                </View>
-
-                <View style={styles.getStartedContainer}>
-
-                    <Text style={{color:'black', fontSize:17, marginTop:20}}>PASSWORD</Text>
-
-                    <TextInput style={styles.input} ></TextInput>
-
-                </View>
-
                 <View style={styles.container,{backgroundColor:'transparent', marginTop:12}}>
 
-                    <Button onPress={this._SingInAsync} title="Log In" color="#6A04FA"/>
-
-                </View>
-
-            </View>
-
-            <View style={styles.getStartedContainer3}>
-
-                <View style={styles.getStartedContainer}>
-
-                    <Text style={{color:'black', fontSize:17}}>Not registered yet? </Text>
-
-                    <Button title="Register Here!" onPress={this._fetchAsync} color="#6A04FA"></Button>
+                    <Button onPress={this._BackToHome} title="Back To Home" color="#6A04FA"/>
 
                 </View>
 
@@ -95,11 +55,9 @@ export default class LogInScreen extends React.Component {
   return data;
   };
 
-  _SingInAsync = async () => {
-    await AsyncStorage.setItem('userToken', 'abc');
+  _BackToHome = async () => {
     this.props.navigation.navigate('Main');
-    console.log(AsyncStorage.getItem('userToken'));
-      }
+  }
 
   _maybeRenderDevelopmentModeWarning() {
     if (__DEV__) {
@@ -248,13 +206,7 @@ const styles = StyleSheet.create({
         width: 275,
     },
     getStartedContainer3: {
-        alignItems: 'center',
-        marginHorizontal: 50,
-        backgroundColor:'white',
-        borderRadius:10,
-        paddingTop:10,
-        paddingBottom:15,
-        width: 275,
-        marginTop:20,
+        height:800,
+        backgroundColor:"transparent",
         },
 });
