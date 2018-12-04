@@ -10,6 +10,7 @@ import {
   Button,
   AsyncStorage,
   TextInput,
+  AlertIOS
 } from 'react-native';
 
 import { WebBrowser, LinearGradient } from 'expo';
@@ -30,7 +31,6 @@ export default class HomeScreen extends React.Component {
 
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
 
-
             <View style={styles.rowContainer}>
                 <Image source= {{uri: "https://is1-ssl.mzstatic.com/image/thumb/Purple128/v4/61/e6/47/61e64722-f5de-88da-9f5b-4d42e7589415/AppIcon-1x_U007emarketing-0-0-GLES2_U002c0-512MB-sRGB-0-0-0-85-220-0-0-0-4.png/246x0w.jpg"}}
                 style={styles.thumbnail}
@@ -40,7 +40,6 @@ export default class HomeScreen extends React.Component {
                     <Text style={styles.author} numberOfLines={1} ellipsizeMode ={'tail'}>Buy as many cokes as you want</Text>
                      <Button title="Realizar Pedido" color="#000000" onPress={this._TurnCocaScreen}></Button>
                 </View>
-
             </View>
 
             <View style={styles.rowContainer}>
@@ -50,7 +49,7 @@ export default class HomeScreen extends React.Component {
                 <View style={styles.rowText}>
                     <Text style={styles.title} numberOfLines={2} ellipsizeMode ={'tail'}>Arcor</Text>
                     <Text style={styles.author} numberOfLines={1} ellipsizeMode ={'tail'}>Te invitamos a descubrir informacion de productos y marcas</Text>
-                    <Button title="Realizar Pedido" color="#000000" onPress={this._DoNothing}></Button>
+                    <Button title="Realizar Pedido" color="#000000" onPress={this._AlertU}></Button>
                 </View>
             </View>
 
@@ -61,7 +60,7 @@ export default class HomeScreen extends React.Component {
                 <View style={styles.rowText}>
                     <Text style={styles.title} numberOfLines={2} ellipsizeMode ={'tail'}>PepsiCo</Text>
                     <Text style={styles.author} numberOfLines={1} ellipsizeMode ={'tail'}>Fabricacion, distribucion y comercializacion de bebidas y aperitivos</Text>
-                     <Button title="Realizar Pedido" color="#000000" onPress={this._DoNothing}></Button>
+                     <Button title="Realizar Pedido" color="#000000" onPress={this._AlertU}></Button>
                 </View>
 
             </View>
@@ -73,7 +72,7 @@ export default class HomeScreen extends React.Component {
                 <View style={styles.rowText}>
                     <Text style={styles.title} numberOfLines={2} ellipsizeMode ={'tail'}>Marlboro</Text>
                     <Text style={styles.author} numberOfLines={1} ellipsizeMode ={'tail'}>Philip Morris</Text>
-                     <Button title="Realizar Pedido" color="#000000" onPress={this._TurnCocaScreen}></Button>
+                     <Button title="Realizar Pedido" color="#000000" onPress={this._AlertU}></Button>
                 </View>
 
             </View>
@@ -85,7 +84,7 @@ export default class HomeScreen extends React.Component {
                 <View style={styles.rowText}>
                     <Text style={styles.title} numberOfLines={2} ellipsizeMode ={'tail'}>Editorial Ovni Press</Text>
                     <Text style={styles.author} numberOfLines={1} ellipsizeMode ={'tail'}>Podras comprar desde todos los paises de america, desde el sur al norte</Text>
-                     <Button title="Realizar Pedido" color="#000000" onPress={this._TurnCocaScreen}></Button>
+                     <Button title="Realizar Pedido" color="#000000" onPress={this._AlertU}></Button>
                 </View>
 
             </View>
@@ -97,7 +96,7 @@ export default class HomeScreen extends React.Component {
                 <View style={styles.rowText}>
                     <Text style={styles.title} numberOfLines={2} ellipsizeMode ={'tail'}>Grido Helado</Text>
                     <Text style={styles.author} numberOfLines={1} ellipsizeMode ={'tail'}>fabricación industrial heladera con un nuevo enfoque de mercado que intenta cambiar hábitos de consumo.</Text>
-                     <Button title="Realizar Pedido" color="#000000" onPress={this._TurnCocaScreen}></Button>
+                     <Button title="Realizar Pedido" color="#000000" onPress={this._AlertU}></Button>
                 </View>
 
             </View>
@@ -112,6 +111,13 @@ export default class HomeScreen extends React.Component {
 
     );
 
+  }
+
+  _AlertU () {
+    AlertIOS.alert(
+     'Coming Soon!',
+     'This part has not been developed yet.'
+    );
   }
 
   _SingOutAsync = async () => {
@@ -252,52 +258,52 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#2e78b7',
   },
-    input: {
-        margin: 10,
-        marginBottom: 0,
-        height: 34,
-        width: 275,
-        paddingHorizontal: 10,
-        borderRadius: 4,
-        borderColor: '#000000',
-        borderWidth: 1,
-        fontSize: 16,
-        color:"#FFFFFF"
-      },
-      rowContainer: {
-          flexDirection: 'row',
-          backgroundColor: '#FFF',
-          height: 100,
-          padding: 10,
-          marginRight: 10,
-          marginLeft: 10,
-          marginTop: 10,
-          borderRadius: 4,
-          shadowOffset:{  width: 1,  height: 1,  },
-          shadowColor: '#CCC',
-          shadowOpacity: 1.0,
-          shadowRadius: 1
-        },
-        title: {
-          paddingLeft: 10,
-          paddingTop: 5,
-          fontSize: 16,
-          fontWeight: 'bold',
-          color: '#777'
-        },
-        author: {
-          paddingLeft: 10,
-          marginTop: 5,
-          fontSize: 14,
-          color: '#777'
-        },
-        thumbnail: {
-          flex: 1,
-          height: undefined,
-          width: undefined
-        },
-        rowText: {
-          flex: 4,
-          flexDirection: 'column'
-        }
+  input: {
+    margin: 10,
+    marginBottom: 0,
+    height: 34,
+    width: 275,
+    paddingHorizontal: 10,
+    borderRadius: 4,
+    borderColor: '#000000',
+    borderWidth: 1,
+    fontSize: 16,
+    color:"#FFFFFF"
+  },
+  rowContainer: {
+    flexDirection: 'row',
+    backgroundColor: '#FFF',
+    height: 100,
+    padding: 10,
+    marginRight: 10,
+    marginLeft: 10,
+    marginTop: 10,
+    borderRadius: 4,
+    shadowOffset:{  width: 1,  height: 1,  },
+    shadowColor: '#CCC',
+    shadowOpacity: 1.0,
+    shadowRadius: 1
+  },
+  title: {
+    paddingLeft: 10,
+    paddingTop: 5,
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#777'
+  },
+  author: {
+    paddingLeft: 10,
+    marginTop: 5,
+    fontSize: 14,
+    color: '#777'
+  },
+  thumbnail: {
+    flex: 1,
+    height: undefined,
+    width: undefined
+  },
+  rowText: {
+    flex: 4,
+    flexDirection: 'column',
+  }
 });

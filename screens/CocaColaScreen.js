@@ -9,10 +9,13 @@ import {
   View,
   TextInput,
   Button,
-  Alert,
+  AlertIOS,
   AsyncStorage,
+  Picker,
 } from 'react-native';
 import { WebBrowser, LinearGradient } from 'expo';
+
+import { ExpoLinksView } from '@expo/samples';
 
 import { MonoText } from '../components/StyledText';
 
@@ -25,27 +28,71 @@ export default class CocaColaScreen extends React.Component {
     return (
       <View style={styles.container}>
 
+      <LinearGradient colors={[ '#C337C4', '#1D2671']}
+                    style={{position: 'absolute', left: 0, right: 0, top: -50, height: 718,}}/>
+
         <ScrollView style={styles.container, {backgroundColor:'transparent'}} contentContainerStyle={styles.contentContainer}>
 
-            <View style={styles.getStartedContainer2}>
+            <View style={styles.columnContainer}>
 
-                <View style={styles.container,{backgroundColor:'transparent', marginTop:12}}>
+                <View style={styles.rowContainer}>
 
-                    <Button onPress={this._BackToHome} title="Back To Home" color="#6A04FA"/>
+                    <Image source= {{uri: "https://is1-ssl.mzstatic.com/image/thumb/Purple128/v4/61/e6/47/61e64722-f5de-88da-9f5b-4d42e7589415/AppIcon-1x_U007emarketing-0-0-GLES2_U002c0-512MB-sRGB-0-0-0-85-220-0-0-0-4.png/246x0w.jpg"}}
+                    style={styles.thumbnail}/>
+
+                    <Text style={styles.title}>The CocaCola Company</Text>
 
                 </View>
 
+                <Text style={styles.getStartedText}>How many cokes do you want?</Text>
+
+                <TextInput style={styles.input}></TextInput>
+
+                <Text style={styles.getStartedText}>Please, type your Direction</Text>
+
+                <TextInput style={styles.input}></TextInput>
+
+                <Text style={styles.getStartedText}>Which flavour do you want?</Text>
+
+                <Picker
+                  style={{width:150, marginLeft:95, }}>
+                  <Picker.Item label="CocaCola" value="CC" />
+                  <Picker.Item label="CocaCola zero" value="CCZ" />
+                  <Picker.Item label="CocaCola light" value="CCL" />
+                  <Picker.Item label="Sprite" value="SPR" />
+                  <Picker.Item label="Fanta" value="FNT" />
+                </Picker>
+
+                <Text style={styles.getStartedText}>Select the way of payment:</Text>
+
+                <Picker
+                  style={{width:150, marginLeft:95, }}>
+                  <Picker.Item label="Visa" value="CC" />
+                  <Picker.Item label="MasterCard" value="CCZ" />
+                  <Picker.Item label="PayPal" value="CCL" />
+                  <Picker.Item label="Bitcoins" value="SPR" />
+                  <Picker.Item label="Cash" value="FNT" />
+                </Picker>
+
+                <View style={styles.rowContainer}>
+
+                    <Button onPress={this._BackToHome} title="       Back To Home" color="#6A04FA"/>
+
+                    <Button onPress={this._Purchase} title="Purchase" color="#6A04FA"/>
+
+                </View>
             </View>
 
         </ScrollView>
 
-        <View style={{backgroundColor:'transparent'}}>
-
-            <Button onPress={this._fetchAsync} title="Try Database" color="#FFFFFF"/>
-
-        </View>
-
       </View>
+    );
+  }
+
+  _Purchase () {
+    AlertIOS.alert(
+     'Coming Soon!',
+     'This part has not been developed yet.'
     );
   }
 
@@ -140,9 +187,10 @@ const styles = StyleSheet.create({
   },
   getStartedText: {
     fontSize: 17,
-    color: '#FFFFFF',
+    color: '#000000',
     lineHeight: 24,
     textAlign: 'center',
+    marginTop:10,
   },
   tabBarInfoContainer: {
     position: 'absolute',
@@ -184,29 +232,62 @@ const styles = StyleSheet.create({
     color: '#2e78b7',
   },
   input: {
-      margin: 20,
-      marginBottom: 0,
-      height: 34,
-      width: 175,
-      paddingHorizontal: 10,
-      borderRadius: 4,
-      borderColor: 'black',
-      borderWidth: 1,
-      fontSize: 16,
-      color:"#000000",
-    },
-    getStartedContainer2: {
-        alignItems: 'center',
-        marginHorizontal: 50,
-        backgroundColor:'white',
-        borderRadius:10,
-        paddingTop:10,
-        paddingBottom:15,
-        marginTop:115,
-        width: 275,
-    },
-    getStartedContainer3: {
-        height:800,
-        backgroundColor:"transparent",
-        },
+    marginTop: 5,
+    marginBottom: 10,
+    marginLeft: 25,
+    height: 34,
+    width: 285,
+    paddingHorizontal: 10,
+    borderRadius: 4,
+    borderColor: 'black',
+    borderWidth: 1,
+    fontSize: 16,
+    color:"#000000",
+  },
+  getStartedContainer2: {
+    alignItems: 'center',
+    marginHorizontal: 50,
+    backgroundColor:'white',
+    borderRadius:10,
+    paddingTop:10,
+    paddingBottom:15,
+    marginTop:115,
+    width: 275,
+  },
+  getStartedContainer3: {
+    height:800,
+    backgroundColor:"transparent",
+  },
+  rowContainer: {
+    flexDirection: 'row',
+    padding: 10,
+    marginRight: 10,
+    marginLeft: 10,
+    marginTop: 10,
+    borderRadius: 4,
+    alignItems:"center"
+  },
+  columnContainer: {
+    flexDirection: 'column',
+    backgroundColor: '#FFF',
+    padding: 10,
+    marginRight: 10,
+    marginLeft: 10,
+    marginTop: 10,
+    borderRadius: 4,
+  },
+  title: {
+    paddingLeft: 10,
+    paddingTop: 5,
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#777',
+    marginTop:20,
+    marginLeft:5,
+  },
+  thumbnail: {
+    flex: 1,
+    height: 75,
+    width: undefined
+  },
 });

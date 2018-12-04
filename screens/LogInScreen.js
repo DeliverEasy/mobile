@@ -11,6 +11,7 @@ import {
   Button,
   Alert,
   AsyncStorage,
+  AlertIOS
 } from 'react-native';
 import { WebBrowser, LinearGradient } from 'expo';
 
@@ -71,7 +72,7 @@ export default class LogInScreen extends React.Component {
 
                     <Text style={{color:'black', fontSize:17}}>Not registered yet? </Text>
 
-                    <Button title="Register Here!" onPress={this._fetchAsync} color="#6A04FA"></Button>
+                    <Button title="Register Here!" onPress={this._AlertU} color="#6A04FA"></Button>
 
                 </View>
 
@@ -86,6 +87,13 @@ export default class LogInScreen extends React.Component {
         </View>
 
       </View>
+    );
+  }
+
+  _AlertU () {
+    AlertIOS.alert(
+     'Coming Soon!',
+     'This part has not been developed yet.'
     );
   }
 
@@ -226,8 +234,8 @@ const styles = StyleSheet.create({
     color: '#2e78b7',
   },
   input: {
-      margin: 20,
-      marginBottom: 0,
+      marginTop: 5,
+      marginBottom: 10,
       height: 34,
       width: 175,
       paddingHorizontal: 10,
@@ -244,7 +252,7 @@ const styles = StyleSheet.create({
         borderRadius:10,
         paddingTop:10,
         paddingBottom:15,
-        marginTop:115,
+        marginTop:100,
         width: 275,
     },
     getStartedContainer3: {
