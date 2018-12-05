@@ -103,10 +103,6 @@ export default class HomeScreen extends React.Component {
 
         </ScrollView>
 
-        <View style={styles.tabBarInfoContainer}>
-            <Button onPress={this._SingOutAsync} title="Log Out" color="#000000"/>
-        </View>
-
       </View>
 
     );

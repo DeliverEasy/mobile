@@ -44,9 +44,9 @@ export default class LogInScreen extends React.Component {
 
                 <View style={styles.getStartedContainer}>
 
-                    <Text style={{color:'black', fontSize:17}}>USER </Text>
+                    <Text style={{color:'black', fontSize:17}}>USER or MAIL</Text>
 
-                    <TextInput style={styles.input}></TextInput>
+                    <TextInput style={styles.input}>MateSape</TextInput>
 
                 </View>
 
@@ -54,7 +54,7 @@ export default class LogInScreen extends React.Component {
 
                     <Text style={{color:'black', fontSize:17, marginTop:20}}>PASSWORD</Text>
 
-                    <TextInput style={styles.input} ></TextInput>
+                    <TextInput style={styles.input} >Yuno4Life</TextInput>
 
                 </View>
 
