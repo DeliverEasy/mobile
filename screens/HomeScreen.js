@@ -49,7 +49,7 @@ export default class HomeScreen extends React.Component {
                 <View style={styles.rowText}>
                     <Text style={styles.title} numberOfLines={2} ellipsizeMode ={'tail'}>Arcor</Text>
                     <Text style={styles.author} numberOfLines={1} ellipsizeMode ={'tail'}>Te invitamos a descubrir informacion de productos y marcas</Text>
-                    <Button title="Realizar Pedido" color="#000000" onPress={this._AlertU}></Button>
+                    <Button title="Realizar Pedido" color="#000000" onPress={this._TurnCocaScreen}></Button>
                 </View>
             </View>
 
@@ -60,7 +60,7 @@ export default class HomeScreen extends React.Component {
                 <View style={styles.rowText}>
                     <Text style={styles.title} numberOfLines={2} ellipsizeMode ={'tail'}>PepsiCo</Text>
                     <Text style={styles.author} numberOfLines={1} ellipsizeMode ={'tail'}>Fabricacion, distribucion y comercializacion de bebidas y aperitivos</Text>
-                     <Button title="Realizar Pedido" color="#000000" onPress={this._AlertU}></Button>
+                     <Button title="Realizar Pedido" color="#000000" onPress={this._TurnCocaScreen}></Button>
                 </View>
 
             </View>
@@ -72,7 +72,7 @@ export default class HomeScreen extends React.Component {
                 <View style={styles.rowText}>
                     <Text style={styles.title} numberOfLines={2} ellipsizeMode ={'tail'}>Marlboro</Text>
                     <Text style={styles.author} numberOfLines={1} ellipsizeMode ={'tail'}>Philip Morris</Text>
-                     <Button title="Realizar Pedido" color="#000000" onPress={this._AlertU}></Button>
+                     <Button title="Realizar Pedido" color="#000000" onPress={this._TurnCocaScreen}></Button>
                 </View>
 
             </View>
@@ -84,7 +84,7 @@ export default class HomeScreen extends React.Component {
                 <View style={styles.rowText}>
                     <Text style={styles.title} numberOfLines={2} ellipsizeMode ={'tail'}>Editorial Ovni Press</Text>
                     <Text style={styles.author} numberOfLines={1} ellipsizeMode ={'tail'}>Podras comprar desde todos los paises de america, desde el sur al norte</Text>
-                     <Button title="Realizar Pedido" color="#000000" onPress={this._AlertU}></Button>
+                     <Button title="Realizar Pedido" color="#000000" onPress={this._TurnCocaScreen}></Button>
                 </View>
 
             </View>
@@ -96,7 +96,7 @@ export default class HomeScreen extends React.Component {
                 <View style={styles.rowText}>
                     <Text style={styles.title} numberOfLines={2} ellipsizeMode ={'tail'}>Grido Helado</Text>
                     <Text style={styles.author} numberOfLines={1} ellipsizeMode ={'tail'}>fabricación industrial heladera con un nuevo enfoque de mercado que intenta cambiar hábitos de consumo.</Text>
-                     <Button title="Realizar Pedido" color="#000000" onPress={this._AlertU}></Button>
+                     <Button title="Realizar Pedido" color="#000000" onPress={this._TurnCocaScreen}></Button>
                 </View>
 
             </View>
