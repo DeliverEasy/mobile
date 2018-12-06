@@ -12,6 +12,7 @@ import { createStackNavigator, createSwitchNavigator } from 'react-navigation';
 import MainTabNavigator from './MainTabNavigator';
 import LogInScreen from '../screens/LogInScreen'
 import CocaColaScreen from '../screens/CocaColaScreen'
+import RegisterScreen from '../screens/RegisterScreen'
 
 class AuthLoadingScreen extends React.Component {
   constructor() {
@@ -25,7 +26,7 @@ class AuthLoadingScreen extends React.Component {
 
     // This will switch to the App screen or Auth screen and this loading
     // screen will be unmounted and thrown away.
-    this.props.navigation.navigate(userToken ? 'SignIn' : 'Main' :'CocaCola');
+    this.props.navigation.navigate(userToken ? 'SignIn' : 'Main');
   };
 
   // Render any loading content that you like here
@@ -45,7 +46,8 @@ export default createSwitchNavigator({
   SignIn:LogInScreen,
   Main:MainTabNavigator,
   AuthLoading:AuthLoadingScreen,
-  CocaCola:CocaColaScreen
+  CocaCola:CocaColaScreen,
+  Register:RegisterScreen,
   },
   {
   initialRouteName: 'SignIn',

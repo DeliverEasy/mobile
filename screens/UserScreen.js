@@ -61,6 +61,21 @@ export default class UserScreen extends React.Component {
                     </View>
 
                     <View style={styles.rowContainer2}>
+                        <Text style={styles.subTitle}>Street: </Text>
+                        <Text style={{paddingLeft: 1, paddingTop: 5}}>Ambrosio Taravella</Text>
+                    </View>
+
+                    <View style={styles.rowContainer2}>
+                        <Text style={styles.subTitle}>Number: </Text>
+                        <Text style={{paddingLeft: 1, paddingTop: 5}}>6240</Text>
+                    </View>
+
+                    <View style={styles.rowContainer2}>
+                        <Text style={styles.subTitle}>neighborhood: </Text>
+                        <Text style={{paddingLeft: 1, paddingTop: 5}}>Granja de Funes</Text>
+                    </View>
+
+                    <View style={styles.rowContainer2}>
                         <Text style={styles.subTitle}>Country: </Text>
                         <Text style={{paddingLeft: 10, paddingTop: 5,}}>Argentina</Text>
                     </View>

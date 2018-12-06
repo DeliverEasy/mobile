@@ -54,7 +54,7 @@ export default class LogInScreen extends React.Component {
 
                     <Text style={{color:'black', fontSize:17, marginTop:20}}>PASSWORD</Text>
 
-                    <TextInput style={styles.input} >Yuno4Life</TextInput>
+                    <TextInput style={styles.input} secureTextEntry={true} >Yuno4Life</TextInput>
 
                 </View>
 
@@ -72,7 +72,7 @@ export default class LogInScreen extends React.Component {
 
                     <Text style={{color:'black', fontSize:17}}>Not registered yet? </Text>
 
-                    <Button title="Register Here!" onPress={this._AlertU} color="#6A04FA"></Button>
+                    <Button title="Register Here!" onPress={this._RegisterSC} color="#6A04FA"></Button>
 
                 </View>
 
@@ -95,6 +95,10 @@ export default class LogInScreen extends React.Component {
      'Coming Soon!',
      'This part has not been developed yet.'
     );
+  }
+
+  _RegisterSC = async () =>  {
+   this.props.navigation.navigate('Register');
   }
 
   _fetchAsync = async () => {
