@@ -102,7 +102,7 @@ export default class LogInScreen extends React.Component {
   }
 
   _fetchAsync = async () => {
-  let data = await (await fetch('http://http://192.168.60.127:8000/users/current_user/')).json();
+  let data = await (await fetch('http://192.168.60.127:8000/users/current_user/')).json();
   console.log(data)
   return data;
   };

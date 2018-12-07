@@ -28,8 +28,7 @@ export default class CocaColaScreen extends React.Component {
     return (
       <View style={styles.container}>
 
-      <LinearGradient colors={[ '#C337C4', '#1D2671']}
-                    style={{position: 'absolute', left: 0, right: 0, top: -50, height: 718,}}/>
+      <LinearGradient colors={[ '#C337C4', '#1D2671']} style={{position: 'absolute', left: 0, right: 0, top: -50, height: 718,}}/>
 
         <ScrollView style={styles.container, {backgroundColor:'transparent'}} contentContainerStyle={styles.contentContainer}>
 
@@ -72,6 +71,7 @@ export default class CocaColaScreen extends React.Component {
                   <Picker.Item label="PayPal" value="CCL" />
                   <Picker.Item label="Bitcoins" value="SPR" />
                   <Picker.Item label="Cash" value="FNT" />
+                  <Picker.Item label="Doctas" value="DCT" />
                 </Picker>
 
                 <View style={styles.rowContainer}>

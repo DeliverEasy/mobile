@@ -10,7 +10,8 @@ import {
   Button,
   AsyncStorage,
   TextInput,
-  AlertIOS
+  AlertIOS,
+  ActivityIndicator,
 } from 'react-native';
 
 import { WebBrowser, LinearGradient } from 'expo';
@@ -21,8 +22,49 @@ export default class HomeScreen extends React.Component {
   static navigationOptions = {
     title: "Deliver Easy [Version: Alpha 0.0.6]",
   };
+  constructor(props) {
+    super(props);
+    this.state = {
+        isLoading:true,
+        dataSource:null,
+    }
+  }
+
+  componentDidMount () {
+    return fetch('https://facebook.github.io/react-native/movies.json')
+        .then ( (response) => response.json() )
+        .then ( (responseJson)  => {
+        this.setState({
+            isLoading:false,
+            dataSource: responseJson.movies,
+        })
+    })
+
+    .catch((error) => {
+        console.log(error)
+    });
+
+  }
 
   render() {
+
+    if (this.state.isLoading) {
+        return (
+            <View style={styles.container}>
+                <LinearGradient colors={[ '#C337C4', '#1D2671']} style={{position: 'absolute', left: 0, right: 0, top: -50, height: 718,}}/>
+                <View style={{marginTop:300}}>
+                    <ActivityIndicator size="large" color="#FFFFFF" />
+                </View>
+            </View>
+        )
+    }else{
+
+        let movies = this.state.dataSource.map((val, key) => {
+            return <View key={key} style={styles.rowContainer}>
+                            <Text style={styles.rowText}>{val.title}</Text>
+                   </View>
+        })
+
     return (
       <View style={styles.container}>
 
@@ -106,6 +148,8 @@ export default class HomeScreen extends React.Component {
       </View>
 
     );
+
+    }
 
   }
 
@@ -301,5 +345,9 @@ const styles = StyleSheet.create({
   rowText: {
     flex: 4,
     flexDirection: 'column',
+  },
+  items: {
+    flex: 1,
+    margin:10,
   }
 });
